@@ -24,8 +24,9 @@ let board = []; // array of rows, each row is array of cells  (board[y][x]); our
 
 function makeBoard() {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  //FIXME: Array.from() to set correct number of rows
   for(let row = 0; row < WIDTH; row++){
-    let newRow = [row];
+    let newRow = Array.from({length: 7});
     board.push(newRow);
   }
   return board;
@@ -58,13 +59,16 @@ function makeHTMLBoard() {
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
     // Create a table row element and assign to a "row" variable
-    let row = document.getElementById('column-top');
+    //FIXME: make new row using tr element
+    let row = document.createElement('tr');
 
     for (let x = 0; x < WIDTH; x++) {
       // Create a table cell element and assign to a "cell" variable
-      let cell = document.getElementById(`top-${x}`);
+      //FIXME: make new table cell -> td element
+      let cell = document.createElement(`td`);
       // add an id, c-y-x, to the above table cell element
-      cell.setAttribute("id", "c-y-x");
+      //FIXME: string interpolation
+      cell.setAttribute("id", `c-${y}-${x}`);
       // you'll use this later, so make sure you use c-y-x
 
       // append the table cell to the table row
@@ -86,6 +90,7 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+
 }
 
 /** endGame: announce game end */
