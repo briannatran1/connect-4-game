@@ -23,8 +23,8 @@ let board = []; // array of rows, each row is array of cells  (board[y][x]); our
 //return board
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
-  //FIXME: Array.from() to set correct number of rows
+  // set "board" to empty HEIGHT x WIDTH matrix array
+  // Array.from() to set correct number of rows
   for(let row = 0; row < WIDTH; row++){
     let newRow = Array.from({length: 7});
     board.push(newRow);
@@ -59,15 +59,15 @@ function makeHTMLBoard() {
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
     // Create a table row element and assign to a "row" variable
-    //FIXME: make new row using tr element
+    // make new row using tr element
     let row = document.createElement('tr');
 
     for (let x = 0; x < WIDTH; x++) {
       // Create a table cell element and assign to a "cell" variable
-      //FIXME: make new table cell -> td element
+      //make new table cell -> td element
       let cell = document.createElement(`td`);
       // add an id, c-y-x, to the above table cell element
-      //FIXME: string interpolation
+      // string interpolation
       cell.setAttribute("id", `c-${y}-${x}`);
       // you'll use this later, so make sure you use c-y-x
 
@@ -90,7 +90,14 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  //FIXME: change p1 to be dynamic
+  let gamePiece = document.createElement('div');
+  gamePiece.setAttribute('class', `piece p${currPlayer}`);
 
+  let cell = document.getElementById(`c-${y}-${x}`);
+  console.log('x is equal to ', x);
+  console.log('y is equal to ', y);
+  cell.append(gamePiece);
 }
 
 /** endGame: announce game end */
@@ -103,8 +110,9 @@ function endGame(message) {
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  // FIXME: plus sign good?
-  let x = +evt.target.id;
+  // FIXME: plus sign good? -> NaN
+  let x = evt.target.id;
+  console.log('evt target = ', x);
 
   // get next spot in column (if none, ignore click)
   let y = findSpotForCol(x);
@@ -126,6 +134,7 @@ function handleClick(evt) {
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
+
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
