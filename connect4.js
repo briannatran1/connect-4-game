@@ -29,7 +29,7 @@ function makeHtmlBoard() {
   // TODO: add comment for this code
   var top = document.createElement("tr");
   top.setAttribute("id", "column-top");
-  
+
   // TODO: add comment for this code
   for (var x = 0; x < WIDTH; x++) {
     var headCell = document.createElement("td");
