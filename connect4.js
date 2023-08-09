@@ -33,14 +33,18 @@ function makeBoard() {
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
-function makeGameBoard() {
+function makeHTMLBoard() {
   let gameBoard = document.getElementById('board');
 
-  // TODO: add comment for this code
+
+  // declaring/initializing each rows and setting its id to 'column-top'
   let top = document.createElement("tr");
   top.setAttribute("id", "column-top");
 
-  // TODO: add comment for this code
+  // create loop to declare each cell of the row
+  // setting its id to its current position in the row
+  // set click event listener to cell and add to row
+  // after loop is finished add row to board (html board)
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement("td");
     headCell.setAttribute("id", `top-${x}`);
@@ -53,19 +57,21 @@ function makeGameBoard() {
   // uses HEIGHT to create table rows
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
-    // TODO: Create a table row element and assign to a "row" variable
+    // Create a table row element and assign to a "row" variable
+    let row = document.getElementById('column-top');
 
     for (let x = 0; x < WIDTH; x++) {
-      // TODO: Create a table cell element and assign to a "cell" variable
-
-      // TODO: add an id, c-y-x, to the above table cell element
+      // Create a table cell element and assign to a "cell" variable
+      let cell = document.getElementById(`top-${x}`);
+      // add an id, c-y-x, to the above table cell element
+      cell.setAttribute("id", "c-y-x");
       // you'll use this later, so make sure you use c-y-x
 
-      // TODO: append the table cell to the table row
-
+      // append the table cell to the table row
+      row.append(cell);
     }
-    // TODO: append the row to the html board
-
+    // append the row to the html board
+    gameBoard.append(row);
   }
 }
 
@@ -158,4 +164,4 @@ function checkForWin() {
 }
 
 makeBoard();
-makeGameBoard();
+makeHTMLBoard();
