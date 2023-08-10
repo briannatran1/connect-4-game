@@ -26,7 +26,7 @@ function makeBoard() {
   // set "board" to empty HEIGHT x WIDTH matrix array
   // Array.from() to set correct number of rows
   for(let row = 0; row < WIDTH; row++){
-    let newRow = Array.from({length: 7});
+    let newRow = Array.from({length: 7}, val => null);
     board.push(newRow);
   }
   return board;
@@ -48,7 +48,7 @@ function makeHTMLBoard() {
   // after loop is finished add row to board (html board)
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement("td");
-    headCell.setAttribute("id", `top-${x}`);
+    headCell.setAttribute("id", `${x}`);
     headCell.addEventListener("click", handleClick);
     top.append(headCell);
   }
@@ -89,14 +89,15 @@ function findSpotForCol(x) {
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
-  //FIXME: change p1 to be dynamic
+  // make a div and insert into correct table cell
+  // change p1 to be dynamic
   let gamePiece = document.createElement('div');
   gamePiece.setAttribute('class', `piece p${currPlayer}`);
 
   let cell = document.getElementById(`c-${y}-${x}`);
   console.log('x is equal to ', x);
   console.log('y is equal to ', y);
+  console.log(`c-${y}-${x}`);
   cell.append(gamePiece);
 }
 
