@@ -106,7 +106,8 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 
 function endGame(message) {
-  // TODO: pop up alert message
+  // pop up alert message
+  alert(message);
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -123,17 +124,9 @@ function handleClick(evt) {
   }
 
   // place piece in board and add to HTML table
-  // TODO: add line to update in-memory board
+  // add line to update in-memory board
   board[y][x] = currPlayer;
   placeInTable(y, x);
-
-  //if div in cell is red,
-    //set null in arr position equal to 1
-  //else if div in cell is blue,
-    //set null in arr position equal to 2
-
-
-
 
   // check for win
   if (checkForWin()) {
@@ -141,9 +134,10 @@ function handleClick(evt) {
   }
 
   // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
-
-
+  // check if all cells in board are filled; if so call, call endGame
+  if(board[0].every(cell => cell !== null)){
+    return endGame('Tie!');
+  }
 
   // switch players
   // change currPlayer variable from 1 to 2, and vice-versa, on every click
