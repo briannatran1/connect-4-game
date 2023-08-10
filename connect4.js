@@ -120,11 +120,13 @@ function handleClick(evt) {
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
   placeInTable(y, x);
-  board[y][x];
+
   //if div in cell is red,
     //set null in arr position equal to 1
   //else if div in cell is blue,
     //set null in arr position equal to 2
+
+
 
 
   // check for win
