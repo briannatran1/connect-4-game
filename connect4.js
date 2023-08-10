@@ -95,9 +95,6 @@ function placeInTable(y, x) {
   gamePiece.setAttribute('class', `piece p${currPlayer}`);
 
   let cell = document.getElementById(`c-${y}-${x}`);
-  console.log('x is equal to ', x);
-  console.log('y is equal to ', y);
-  console.log(`c-${y}-${x}`);
   cell.append(gamePiece);
 }
 
@@ -113,7 +110,6 @@ function handleClick(evt) {
   // get x from ID of clicked cell
   // FIXME: plus sign good? -> NaN
   let x = evt.target.id;
-  console.log('evt target = ', x);
 
   // get next spot in column (if none, ignore click)
   let y = findSpotForCol(x);
@@ -134,7 +130,16 @@ function handleClick(evt) {
   // TODO: check if all cells in board are filled; if so call, call endGame
 
   // switch players
-  // TODO: switch currPlayer 1 <-> 2
+  // change currPlayer variable from 1 to 2, and vice-versa, on every click
+  if (currPlayer === 1) {
+    currPlayer = 2;
+  }
+  else {
+    currPlayer = 1;
+  }
+
+
+
 
 }
 
