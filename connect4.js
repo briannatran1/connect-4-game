@@ -108,7 +108,7 @@ function endGame(message) {
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  // FIXME: plus sign good? -> NaN
+  // plus sign good? -> NaN
   let x = evt.target.id;
 
   // get next spot in column (if none, ignore click)
@@ -120,6 +120,12 @@ function handleClick(evt) {
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
   placeInTable(y, x);
+  board[y][x];
+  //if div in cell is red,
+    //set null in arr position equal to 1
+  //else if div in cell is blue,
+    //set null in arr position equal to 2
+
 
   // check for win
   if (checkForWin()) {
@@ -129,6 +135,8 @@ function handleClick(evt) {
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
 
+
+
   // switch players
   // change currPlayer variable from 1 to 2, and vice-versa, on every click
   if (currPlayer === 1) {
@@ -137,10 +145,6 @@ function handleClick(evt) {
   else {
     currPlayer = 1;
   }
-
-
-
-
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
